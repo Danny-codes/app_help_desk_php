@@ -1,4 +1,9 @@
 <?php
+    
+    session_start();
+
+    print_r($_SESSION);
+    echo '<hr>';
 
     //verifica se a autentificação foi realizada
     $usuario_autentificado = false;
@@ -25,7 +30,9 @@
     
     if($usuario_autentificado){
         echo 'Usuario autenticado';
+        $_SESSION['autentificado'] = 'SIM';
     }else{
+        $_SESSION['autentificado'] = 'NAO';
        header('Location: index.php?login=erro');
     }
 
