@@ -1,3 +1,2 @@
-Notebook não liga#Hardware#bla bla bla bla
-Monitor  com defeito#Hardware#Monitor não liga
-Aplicativo não funciona#Software#O aplicativo apresenta erro fatal
+4#Notebook não liga#Hardware#Monitor fica piscando
+3#Aplicativo não funciona#Software#Aplicativo apresenta erro fatal
