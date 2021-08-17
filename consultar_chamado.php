@@ -13,7 +13,18 @@
   while(!feof($arquivo)){ //testa pelo fim de um arquivo
     //linhas
     $registro = fgets($arquivo);
-    $chamados[] = $registro;
+
+    $registro_detalhes = explode('#', $registro);
+    
+    if($_SESSION['perfil_id'] == 2){
+        if($_SESSION['id'] != $registro_detalhes[0]){
+          continue;
+        }else {
+          $chamados[] = $registro; //adiciona o registro do arquivo ao array $chamados
+        }
+    }else {
+      $chamados[] = $registro; //adiciona o registro do arquivo ao array $chamados
+      }
   }
 
   //fechar o arquivo aberto
@@ -67,14 +78,6 @@
               <?php 
                 
                 $chamado_dados = explode('#', $chamado);
-
-                //
-                if($_SESSION['perfil_id'] == 2) {
-                  //só vamos exibir o chamado, se ele foi criado pelo usuário
-                  if($_SESSION['id'] != $chamado_dados[0]) {
-                    continue;
-                  }
-                }
 
                 if(count($chamado_dados) < 3){
                   continue;
